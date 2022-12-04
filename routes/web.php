@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Session\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,21 +22,18 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function () {
-    return view('test');
+    return view('home');
 });
 
 Route::get('/about', function () {
     return view('about-us');
 });
 
-Route::get('/myr', function () {
-    return view('my-register');
-});
-Route::post('/mys', function (Request $request) {
+Route::get('/register-page', function () {
+    return view('register');
+})->name('register-page');
+
+Route::post('/register-user', function (Request $request) {
 
     //get the data from form and store in var
     $user = User::create([
@@ -47,9 +47,29 @@ Route::post('/mys', function (Request $request) {
     Auth::login($user);
 
     // return 
-    return redirect('test');
-})->name('mys');;
+    return redirect('/');
+})->name('register-user');
 
+Route::get('/login-page', function () {
+    return view('login');
+})->name('login-page');
+
+Route::post('/login-user', function (LoginRequest $request) {
+
+    // authenticate user and create session
+    $request->authenticate();
+    $request->session()->regenerate();
+    return redirect('/');
+
+    //return view('home');
+})->name('login-user');
+
+Route::get('/logout-user', function (Request $request) {
+    //remove session and logout
+    $request->session()->flush();
+    Auth::logout();
+    return view('home');
+})->name('logout-user');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
