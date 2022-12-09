@@ -1,12 +1,9 @@
 <?php
 
-use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Controllers\ProductDataController;
+use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,51 +20,26 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Route::get('/test', function () {
+//     return view('test');
+// });
+
 Route::get('/about', function () {
     return view('about-us');
 });
 
-Route::get('/register-page', function () {
-    return view('register');
-})->name('register-page');
+Route::get('/contact-us', function (Request $request) {
+    return view('contact-us', $data = [$request->all()]);
+});
 
-Route::post('/register-user', function (Request $request) {
+Route::get('/register-user', [UserDataController::class, 'register_page']);
+Route::post('/register-user', [UserDataController::class, 'register_user']);
+Route::get('/login-user', [UserDataController::class, 'login_page']);
+Route::post('/login-user', [UserDataController::class, 'login_user']);
+Route::get('/logout-user', [UserDataController::class, 'logout_user']);
 
-    //get the data from form and store in var
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-    ]);
-
-    //ragister using entered data
-    event(new Registered($user));
-    Auth::login($user);
-
-    // return 
-    return redirect('/');
-})->name('register-user');
-
-Route::get('/login-page', function () {
-    return view('login');
-})->name('login-page');
-
-Route::post('/login-user', function (LoginRequest $request) {
-
-    // authenticate user and create session
-    $request->authenticate();
-    $request->session()->regenerate();
-    return redirect('/');
-
-    //return view('home');
-})->name('login-user');
-
-Route::get('/logout-user', function (Request $request) {
-    //remove session and logout
-    $request->session()->flush();
-    Auth::logout();
-    return view('home');
-})->name('logout-user');
+Route::get('/product-upload', [ProductDataController::class, 'index']);
+Route::post('/product-upload', [ProductDataController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

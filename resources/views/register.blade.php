@@ -12,7 +12,7 @@
         <div class="form-box">
             <div class="form">
                 <h1>Regiter</h1><br>
-                <form method="POST" action="{{ route('register-user') }}">
+                <form method="POST" action="{{ url('/') }}/register-user">
                     @csrf
                     <input type="text" class="if" name="name" placeholder="Name" required autofocus/><br><br>
                     <input type="email" class="if" name="email" placeholder="Email" required /><br><br>
@@ -21,7 +21,7 @@
                     <button class="if-btn" type="submit">Register</button>
                 </form><br>
                 <div class="gotolink">
-                    Already have an account! <a href="{{ route('login-page') }}">click here</a>
+                    Already have an account! <a href="{{ url('/') }}/login-user">click here</a>
                 </div>
                 </form>
             </div>
