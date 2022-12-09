@@ -28,18 +28,22 @@ Route::get('/about', function () {
     return view('about-us');
 });
 
-Route::get('/contact-us', function (Request $request) {
-    return view('contact-us', $data = [$request->all()]);
+Route::get('/contact-us', function () {
+    return view('contact-us');
 });
 
 Route::get('/register-user', [UserDataController::class, 'register_page']);
 Route::post('/register-user', [UserDataController::class, 'register_user']);
 Route::get('/login-user', [UserDataController::class, 'login_page']);
 Route::post('/login-user', [UserDataController::class, 'login_user']);
-Route::post('/logout-user', [UserDataController::class, 'logout_user'])->name('logout-user');
+Route::post('/logout-user', [UserDataController::class, 'logout_user']);
 
 Route::get('/product-upload', [ProductDataController::class, 'index']);
 Route::post('/product-upload', [ProductDataController::class, 'show']);
+
+Route::get('/product-upload', function () {
+    return view('product-upload');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
