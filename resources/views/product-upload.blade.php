@@ -40,10 +40,10 @@
                 @csrf
                 <input type="text" name="name" placeholder="Game name" required/>
                 <input type="file" name="main-img" accept="image/*" required/>
-                <!--<input type="file" name="img1" accept="image/*" required/>
+                <input type="file" name="img1" accept="image/*" required/>
                 <input type="file" name="img2" accept="image/*" required/>
                 <input type="file" name="img3" accept="image/*" required/>
-                <input type="file" name="img4" accept="image/*" required/>-->
+                <input type="file" name="img4" accept="image/*" required/>
                 <input type="number" name="price" placeholder="Price" required/>
                 <input type="text" name="description" placeholder="Game info" required/>
                 <input type="submit" value="Upload"/>
