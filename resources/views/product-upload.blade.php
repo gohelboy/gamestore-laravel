@@ -36,7 +36,7 @@
 <body>
     <div class="container">
             <h1>Upload game to database</h1>
-            <form method="POST" action="{{ route('product-upload') }}">
+            <form method="POST" action="{{ url('/') }}/product">
                 @csrf
                 <input type="text" name="name" placeholder="Game name" required/>
                 <input type="file" name="main-img" accept="image/*" required/>
