@@ -52,6 +52,6 @@ class UserDataController extends Controller
     {
         $request->session()->flush();
         Auth::logout();
-        return view('home');
+        return redirect('/');
     }
 }

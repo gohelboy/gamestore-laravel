@@ -16,7 +16,8 @@
             <h1>Hey, guest</h1>
         @else
             Hey, {{ Auth::user()->name; }}</br>
-            <form method="get" href="{{ url('/') }}/logout-user">
+            <form method="post" action="{{ url('/') }}/logout-user">
+                @csrf
                 <input type='submit' value="Logout">
             </form>
         @endguest 
