@@ -36,16 +36,16 @@
 <body>
     <div class="container">
             <h1>Upload game to database</h1>
-            <form method="POST" action="{{ url('/') }}/product">
+            <form method="POST" action="{{ url('/') }}/product" enctype="multipart/form-data">
                 @csrf
-                <input type="text" name="name" placeholder="Game name" required/>
-                <input type="file" name="main-img" accept="image/*" required/>
+                {{-- <input type="text" name="name" placeholder="Game name" required/> --}}
+                <input type="file" name="image" accept="image/*" required/>
                 <input type="file" name="img1" accept="image/*" required/>
                 <input type="file" name="img2" accept="image/*" required/>
                 <input type="file" name="img3" accept="image/*" required/>
                 <input type="file" name="img4" accept="image/*" required/>
-                <input type="number" name="price" placeholder="Price" required/>
-                <input type="text" name="description" placeholder="Game info" required/>
+                {{-- <input type="number" name="price" placeholder="Price" required/>
+                <input type="text" name="description" placeholder="Game info" required/> --}}
                 <input type="submit" value="Upload"/>
             </form>
     </div>
