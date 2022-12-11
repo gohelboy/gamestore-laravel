@@ -21,12 +21,6 @@ class ProductDataController extends Controller
         $img3 = uniqid() . '-' . $request->file('img3')->getClientOriginalName();
         $img4 = uniqid() . '-' . $request->file('img4')->getClientOriginalName();
 
-        /* $path = $request->file('image')->storeAs('public/images', $main_img);
-        $request->file('img1')->storeAs('public/images', $img1);
-        $request->file('img2')->storeAs('public/images', $img2);
-        $request->file('img3')->storeAs('public/images', $img3);
-        $request->file('img4')->storeAs('public/images', $img4); */
-
         $game = new Product();
         $game->name = $request->name;
         $game->price = $request->price;

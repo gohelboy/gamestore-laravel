@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductDataController;
 use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,8 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('test');
+    $games = DB::select('select * from products');
+    return view('test', ['games' => $games]);
 });
 
 Route::get('/about', function () {
