@@ -1,14 +1,14 @@
+@extends('base')
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
+    <head>  
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="{{ asset('css/about.css') }}" rel="stylesheet">
         <title>About us</title>
     </head>
     <body>
+        @section('content')
         <div class="about-box">
             <div class="about-card">
                 <div class="image"><img src="{{ asset('images/parth.png') }}" /></div>
@@ -32,5 +32,7 @@
                 </div>
             </div>
         </div>
+        @stop
+
     </body>
 </html>
