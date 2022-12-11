@@ -41,7 +41,7 @@
                     </li>
                     @else
                     <li>
-                        <h4>Hello, user{{-- {{user.username}} --}}</h4>
+                        <h4>Hello, {{ Auth::User()->name }}</h4>
                     </li>
                     <li>
                         <a href="{{ url('/') }}/">Cart</a>

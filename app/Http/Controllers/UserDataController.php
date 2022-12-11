@@ -35,7 +35,7 @@ class UserDataController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-        return redirect('/');
+        return redirect('/login-user');
     }
     public function login_page()
     {
