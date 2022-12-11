@@ -36,6 +36,7 @@ class ProductDataController extends Controller
         $game->img2 = $request->file('img1')->storeAs('public/images', $img2);
         $game->img3 = $request->file('img1')->storeAs('public/images', $img3);
         $game->img4 = $request->file('img1')->storeAs('public/images', $img4);
+        $game->save();
 
         echo '<pre>';
         print_r("done");
