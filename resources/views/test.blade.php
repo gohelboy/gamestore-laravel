@@ -7,14 +7,17 @@
     <title>testing...</title>
 </head>
 <body>
-    {{-- @foreach ($games as $game)
+    @foreach ($games as $game)
 
     <li>{{ $game->name }}</li>
     <li><img src="{{ Storage::url($game->main_img)}}"></li>
+    <li><img src="{{ Storage::url($game->img1)}}"></li>
     <li><img src="{{ Storage::url($game->img2)}}"></li>
+    <li><img src="{{ Storage::url($game->img3)}}"></li>
+    <li><img src="{{ Storage::url($game->img4)}}"></li>
     <li>{{ $game->price }}</li>
     <li>{{ $game->description }}</li>
         
-    @endforeach --}}
+    @endforeach
 </body>
 </html>

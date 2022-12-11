@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/index', function () {
+    $games = DB::select('select * from products');
+    return view('index', ['games' => $games]);
+});
 
 Route::get('/test', function () {
     $games = DB::select('select * from products');
