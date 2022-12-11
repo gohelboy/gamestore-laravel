@@ -26,7 +26,6 @@ class ProductDataController extends Controller
         $request->file('img3')->storeAs('public/images', $img3);
         $request->file('img4')->storeAs('public/images', $img4);
 
-
         echo '<pre>';
         print_r($path);
     }
