@@ -16,7 +16,7 @@
         <h1>Fill the details</h1>
         <div class="box">
             <form action="/order/" method="post">
-                {%csrf_token%}
+                @csrf
                 <input type="text" name="first-name" placeholder="First name" required />
                 <input type="text" name="last-name" placeholder="Last name" required />
                 <input type="email" name="email" placeholder="Email" required />
