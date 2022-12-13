@@ -16,12 +16,12 @@
         <div class="contact-us-box">
             <div class="left">
                 <p> :) Hello, Lets get in touch</p>
-                <form method="post" autocomplete="off">
+                <form method="post" action="{{ url('/') }}/contact" autocomplete="off">
                     @csrf
-                    <input type="text" name="person-name" placeholder="Name" required />
+                    <input type="text" name="name" placeholder="Name" required />
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="number" name="phone" placeholder="Phone (e.g. *1458752366)" required />
-                    <input name="msg" placeholder="Messege" required />
+                    <input name="msg" placeholder="Message" required />
                     <input type="submit" class="sendbtn" value="Send" />
                 </form>
             </div>

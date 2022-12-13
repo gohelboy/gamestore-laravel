@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Queries extends Model
 {
     use HasFactory;
+
+    protected $fileable = [
+        'name',
+        'email',
+        'phone',
+        'messege'
+    ];
 }

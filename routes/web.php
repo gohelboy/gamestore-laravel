@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProductDataController;
+use App\Http\Controllers\queries;
+use App\Http\Controllers\QueriesController;
 use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +19,9 @@ Route::get('/about', function () {
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
+
+Route::get('/contact', [QueriesController::class, 'create']);
+Route::post('/contact', [QueriesController::class, 'store']);
 
 Route::get('/register-user', [UserDataController::class, 'register_page']);
 Route::post('/register-user', [UserDataController::class, 'register_user']);
