@@ -6,6 +6,11 @@
     box-sizing: border-box;
     transition: 0.3s;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #141414;
 }
 
 .navbar-container {
@@ -13,8 +18,8 @@
     top: 0;
     display: flex;
     justify-content: center;
+    background-color: #141414;
     align-items: center;
-    background: rgb(18, 18, 18);
     z-index: 99999;
 }
 

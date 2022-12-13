@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProductDataController;
-use App\Http\Controllers\queries;
 use App\Http\Controllers\QueriesController;
 use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     $games = DB::select('select * from products');
     return view('index', ['games' => $games]);
+});
+
+Route::get('/{id}', function ($id) {
+    $data = DB::table('products')->select('*')->where('id', '=', $id)->get();
+    return view('gamepage', ['game' => $data]);
 });
 
 Route::get('/about', function () {
