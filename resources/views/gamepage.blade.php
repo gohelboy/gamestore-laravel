@@ -58,6 +58,7 @@
         </div>
     </div>
     @endforeach
+    @stop
     <script>
         function change(mini) {
             var fullimg = document.getElementById("main-img");
@@ -65,7 +66,6 @@
         }       
     </script>
 
-    @stop
 
 </body>
 
