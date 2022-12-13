@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/cart.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/about.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/contact-us.css') }}" />
-    <link rel="stylesheet" type="text/css" href="/static/css/checkout.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('checkout.css') }}" />
     <link rel="stylesheet" type="text/css" href="/static/css/myorders.css"/>
     
     <title>Gamestore</title>

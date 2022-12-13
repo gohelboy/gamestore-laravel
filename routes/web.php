@@ -16,6 +16,10 @@ Route::get('/{id}', function ($id) {
     return view('gamepage', ['game' => $data]);
 });
 
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
 Route::get('/about', function () {
     return view('about-us');
 });
