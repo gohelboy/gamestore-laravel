@@ -9,7 +9,7 @@
                
            <div class="card">
                <div class="img">
-                   <a href='/{{$game->id}}/'><img src="{{Storage::url($game->main_img)}}"></a>
+                   <a href='/game/{{$game->id}}/'><img src="{{Storage::url($game->main_img)}}"></a>
                </div>
                <div class="card-detail">
                    <h3>{{$game->name}}</h3>

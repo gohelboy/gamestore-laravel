@@ -14,11 +14,10 @@ Route::get('/', function () {
 
 // here is the problem we face fix this asap
 
-
-/* Route::get('/{id}', function ($id) {
+Route::get('/game/{id}', function ($id) {
     $data = DB::table('products')->select('*')->where('id', '=', $id)->get();
     return view('gamepage', ['game' => $data]);
-}); */
+});
 
 Route::get('/checkout', function () {
     return view('checkout');

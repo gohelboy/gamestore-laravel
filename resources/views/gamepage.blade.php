@@ -1,8 +1,6 @@
 @extends('base')
     @section('content')
     @foreach ($game as $game)
-        
-    
     <div class="game-detail-view-container">
         <div class="images-container">
             <div class="video-box">
