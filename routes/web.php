@@ -43,4 +43,9 @@ Route::post('/logout-user', [UserDataController::class, 'logout_user']);
 Route::get('/product', [ProductDataController::class, 'index']);
 Route::post('/product', [ProductDataController::class, 'show']);
 
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
 require __DIR__ . '/auth.php';

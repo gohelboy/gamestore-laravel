@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/gamepage.css') }}" type="text/css" />
-    {{-- <link rel="stylesheet" type="text/css" href="/static/css/cart.css" type="text/css" /> --}}
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/about.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/contact-us.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('checkout.css') }}" />
