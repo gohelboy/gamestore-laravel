@@ -12,7 +12,7 @@
             
             <tr class="items">
                 <th>
-                    <img src="{{Storage::url($user->main_img)}}" width="100px" height="140px" />
+                    <img src="{{Storage::url($item->product->main_img)}}" width="100px" height="140px" />
                 </th>
                 <th>
                     <h2>{{ $item->name }}</h2>
@@ -45,14 +45,15 @@
                     <h2>Rs.{{$cart_total}}</h2>
                 </th>
                 <th>
-                    {{-- @if($cart_total > 0%) --}}
+                    @if ($cart_total>0)
                         <form action="/checkout/" method="post">
                             @csrf
                             <input type="number" name="total" value="{{$cart_total}}" hidden />
+                            <input type="number" name="active" value="1" hidden />
                             <input type="submit" class="checkout" />
-                        </form>
-                    {{-- @endif --}}
-                </th>
+                        </form>                        
+                    @endif
+               </th>
 
             </tr>
 

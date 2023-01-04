@@ -15,10 +15,10 @@
     <div class="checkout-container">
         <h1>Fill the details</h1>
         <div class="box">
-            <form action="/order/" method="post">
+            <form action="/ordered" method="post">
                 @csrf
-                <input type="text" name="first-name" placeholder="First name" required />
-                <input type="text" name="last-name" placeholder="Last name" required />
+                <input type="text" name="first_name" placeholder="First name" required />
+                <input type="text" name="last_name" placeholder="Last name" required />
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="number" name="phone" placeholder="Phone No" required />
                 <input type="text" name="city" placeholder="City" required />

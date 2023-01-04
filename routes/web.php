@@ -11,18 +11,11 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     $games = DB::select('select * from products');
     return view('index', ['games' => $games]);
-});
-
-
-// here is the problem we face fix this asap
+})->name('home');
 
 Route::get('/game/{id}', function ($id) {
     $data = DB::table('products')->select('*')->where('id', '=', $id)->get();
     return view('gamepage', ['game' => $data]);
-});
-
-Route::get('/checkout', function () {
-    return view('checkout');
 });
 
 Route::get('/about', function () {
@@ -49,6 +42,8 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart', [CartController::class, 'store']);
 Route::post('/cart/remove', [CartController::class, 'destroy']);
 
+Route::post('/my-order', [OrderController::class, 'index']);
+Route::post('/checkout', [OrderController::class, 'checkout']);
+Route::post('/ordered', [OrderController::class, 'MakeOrder']);
 
-Route::get('/my-order', [OrderController::class, 'index']);
 require __DIR__ . '/auth.php';
