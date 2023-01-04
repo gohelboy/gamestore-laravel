@@ -8,25 +8,25 @@
                 <th>price</th>
             </tr>
 
-            @foreach ($cart as $item)
+            @foreach ($user->carts as $item)
             
             <tr class="items">
                 <th>
-                    <img src="{{-- {{$item->product.image.url}} --}}" width="100px" height="140px" />
+                    <img src="{{Storage::url($user->main_img)}}" width="100px" height="140px" />
                 </th>
                 <th>
-                    <h2>{{-- {{ $item->name }} --}}</h2>
+                    <h2>{{ $item->name }}</h2>
                 </th>
                 <th>
-                    <h4>{{-- {{$item->quantity}} --}}</h4>
+                    <h4>{{$item->quantity}}</h4>
                 </th>
                 <th>
-                    <h3>{{$item->quantity}}</h3>
+                    <h3>{{$item->total}}</h3>
                 </th>
                 <th>
-                    <form action="/remove-from-cart/" method="post">
+                    <form action="/cart/remove" method="post">
                         @csrf
-                        <input type="text" name="cart-id" value="{{$item->id}}" hidden />
+                        <input type="text" name="cart_id" value="{{$item->id}}" hidden />
                         <input type="submit" value="Remove">
                     </form>
                 </th>
@@ -42,16 +42,16 @@
                 <td></td>
 
                 <th>
-                    <h2>Rs.{{-- {{total}} --}}</h2>
+                    <h2>Rs.{{$cart_total}}</h2>
                 </th>
                 <th>
-                    {{-- {%if total > 0%} --}}
-                    <form action="/checkout/" method="post">
-                        @csrf
-                        <input type="number" name="total" value="{{-- {{total}} --}}" hidden />
-                        <input type="submit" class="checkout" />
-                    </form>
-                    {{-- {%endif%} --}}
+                    {{-- @if($cart_total > 0%) --}}
+                        <form action="/checkout/" method="post">
+                            @csrf
+                            <input type="number" name="total" value="{{$cart_total}}" hidden />
+                            <input type="submit" class="checkout" />
+                        </form>
+                    {{-- @endif --}}
                 </th>
 
             </tr>

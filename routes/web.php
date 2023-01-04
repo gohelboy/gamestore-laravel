@@ -1,14 +1,10 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductDataController;
 use App\Http\Controllers\QueriesController;
 use App\Http\Controllers\UserDataController;
-use App\Models\Cart;
-use App\Models\Product;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -49,7 +45,10 @@ Route::get('/logout-user', [UserDataController::class, 'logout_user']);
 Route::get('/product', [ProductDataController::class, 'index']);
 Route::post('/product', [ProductDataController::class, 'show']);
 
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart', [CartController::class, 'store']);
+Route::post('/cart/remove', [CartController::class, 'destroy']);
 
+
+Route::get('/my-order', [OrderController::class, 'index']);
 require __DIR__ . '/auth.php';
