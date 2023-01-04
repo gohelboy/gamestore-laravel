@@ -11,6 +11,8 @@ class OrderController extends Controller
 {
     function index()
     {
+        $user = Auth::user();
+
         return view('myorder');
     }
 

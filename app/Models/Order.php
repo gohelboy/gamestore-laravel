@@ -22,4 +22,14 @@ class Order extends Model
         'address',
         'payment'
     ];
+
+    public function user()
+    {
+        return $this->belongdTo(user::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongdTo(cart::class);
+    }
 }
