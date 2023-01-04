@@ -5,7 +5,7 @@
         <div class="myorders-box">
             <table>
                 <tr>
-                    <th>ORDER NO</th>
+                    <th>ORDER ID</th>
                     <th>IMAGE</td>
                     <th>NAME</th>
                     <th>ORDER</th>
