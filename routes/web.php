@@ -42,7 +42,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart', [CartController::class, 'store']);
 Route::post('/cart/remove', [CartController::class, 'destroy']);
 
-Route::post('/my-order', [OrderController::class, 'index']);
+Route::get('/my-order', [OrderController::class, 'index'])->name('my-order');
 Route::post('/checkout', [OrderController::class, 'checkout']);
 Route::post('/ordered', [OrderController::class, 'MakeOrder']);
 

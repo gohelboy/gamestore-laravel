@@ -9,7 +9,8 @@
             </tr>
 
             @foreach ($user->carts as $item)
-            
+
+            @if ($item->active == 1)
             <tr class="items">
                 <th>
                     <img src="{{Storage::url($item->product->main_img)}}" width="100px" height="140px" />
@@ -32,6 +33,7 @@
                 </th>
 
             </tr>
+            @endif
             @endforeach
 
             <tr class="total-section">

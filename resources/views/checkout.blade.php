@@ -62,13 +62,13 @@
                     <option value="West Bengal">West Bengal</option>
                 </select>
                 <input type="text" name="address" placeholder="Address" required />
-                <select name="pm" class="form-control">
+                <select name="payment" class="form-control">
                     <option value="Cash on delivery">Cash on delivery</option>
                     <option value="Credit Card">Credit card</option>
                     <option value="Debit Card">Debit card</option>
                 </select>
 
-                <input type="number" {{-- value="{{total}}" --}} name="total" hidden />
+                <input type="number" value="{{ request()->total }}" name="total" hidden />
                 <input type="submit" class="btn" value="Confirm order" />
             </form>
         </div>

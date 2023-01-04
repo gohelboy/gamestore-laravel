@@ -16,8 +16,13 @@ class CartController extends Controller
         $user = Auth::user();
         $cart_total = 0;
         foreach ($user->carts as $item) {
-            $cart_total += (int)$item->total;
+            if ($item->active == 1) {
+                $cart_total += (int)$item->total;
+            }
         };
+
+
+
         return view('cart', compact('user', 'cart_total'));
     }
 
