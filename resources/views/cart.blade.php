@@ -8,30 +8,32 @@
                 <th>price</th>
             </tr>
 
-            {{-- {% for i in items %}
+            @foreach ($cart as $item)
+            
             <tr class="items">
                 <th>
-                    <img src="{{i.product.image.url}}" width="100px" height="140px" />
+                    <img src="{{-- {{$item->product.image.url}} --}}" width="100px" height="140px" />
                 </th>
                 <th>
-                    <h2>{{i.product.name}}</h2>
+                    <h2>{{-- {{ $item->name }} --}}</h2>
                 </th>
                 <th>
-                    <h4>{{i.quantity}}</h4>
+                    <h4>{{-- {{$item->quantity}} --}}</h4>
                 </th>
                 <th>
-                    <h3>{{i.total}}</h3>
+                    <h3>{{$item->quantity}}</h3>
                 </th>
                 <th>
                     <form action="/remove-from-cart/" method="post">
-                        {%csrf_token%}
-                        <input type="text" name="cart-id" value="{{i.id}}" hidden />
+                        @csrf
+                        <input type="text" name="cart-id" value="{{$item->id}}" hidden />
                         <input type="submit" value="Remove">
                     </form>
                 </th>
 
             </tr>
-            {% endfor %} --}}
+            @endforeach
+
             <tr class="total-section">
                 <th>
                     <h2>Total</h2>

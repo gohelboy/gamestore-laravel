@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductDataController;
 use App\Http\Controllers\QueriesController;
 use App\Http\Controllers\UserDataController;
+use App\Models\Cart;
+use App\Models\Product;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -38,14 +44,12 @@ Route::get('/register-user', [UserDataController::class, 'register_page']);
 Route::post('/register-user', [UserDataController::class, 'register_user']);
 Route::get('/login-user', [UserDataController::class, 'login_page']);
 Route::post('/login-user', [UserDataController::class, 'login_user']);
-Route::post('/logout-user', [UserDataController::class, 'logout_user']);
+Route::get('/logout-user', [UserDataController::class, 'logout_user']);
 
 Route::get('/product', [ProductDataController::class, 'index']);
 Route::post('/product', [ProductDataController::class, 'show']);
 
-
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', [CartController::class, 'index']);
+Route::post('/cart', [CartController::class, 'store']);
 
 require __DIR__ . '/auth.php';

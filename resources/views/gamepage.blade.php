@@ -28,9 +28,9 @@
                     <h3>Rs.{{$game->price}}</h3>
                 </div>
                 <div class="btns">
-                    <form action="/add-to-cart/" method="POST">
+                    <form action="/cart" method="POST">
                         @csrf
-                        <input type="text" name="game-id" value="{{$game->id}}" hidden />
+                        <input type="number" name="gameid" value="{{$game->id}}" hidden />
                         <select name=quantity class="quantity-count">
                             <option value="1">1</option>
                             <option value="2">2</option>
