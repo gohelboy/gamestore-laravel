@@ -10,21 +10,19 @@
                     <th>NAME</th>
                     <th>ORDER</th>
                     <th>DATE</th>
-                    <th>STATUS</th>
                     <th>TOTAL</th>
                 </tr>
 
-                {{-- {% for i in items %} --}}
+                @foreach ($user->orders as $order)     
                 <tr class="orders">
-                    <td>#{{-- {{i.pk}} --}}</td>
-                    <td><img src="{{-- {{i.cart.product.image.url}} --}}" width="100px"></td>
-                    <td>{{-- {{i.cart.product.name}} --}}</td>
-                    <td>{{-- {{i.cart.quantity}} --}}</td>
-                    <td>{{-- {{i.time}} --}}</td>
-                    <td>{{-- {{i.get_status_display}} --}}</td>
-                    <td>Rs.{{-- {{i.total}} --}}</td>
+                    <td>#{{$order->id }}</td>
+                    <td><img src="{{ Storage::url($order->cart->product->main_img) }}" width="100px"></td>
+                    <td>{{ $order->cart->product->name }}</td>
+                    <td>{{ $order->cart->quantity }}</td>
+                    <td>{{$order->created_at}}</td>
+                    <td>Rs.{{$order->total}}</td>
                 </tr>
-                {{-- {% endfor %} --}}
+                @endforeach
             </table>
         </div>
     </div>

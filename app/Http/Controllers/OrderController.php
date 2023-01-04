@@ -12,8 +12,7 @@ class OrderController extends Controller
     function index()
     {
         $user = Auth::user();
-
-        return view('myorder');
+        return view('myorder', compact('user'));
     }
 
     function checkout()

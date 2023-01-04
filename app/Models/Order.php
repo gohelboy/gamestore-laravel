@@ -25,11 +25,11 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongdTo(user::class);
+        return $this->belongsTo(user::class);
     }
 
     public function cart()
     {
-        return $this->belongdTo(cart::class);
+        return $this->belongsTo(cart::class);
     }
 }

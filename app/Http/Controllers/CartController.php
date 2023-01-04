@@ -20,9 +20,6 @@ class CartController extends Controller
                 $cart_total += (int)$item->total;
             }
         };
-
-
-
         return view('cart', compact('user', 'cart_total'));
     }
 
