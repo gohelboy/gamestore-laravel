@@ -22,7 +22,6 @@ class QueriesController extends Controller
         $q->messege = $request->msg;
         $q->save();
 
-        echo "<pre>";
-        print_r("done");
+        return view('contact-us');
     }
 }

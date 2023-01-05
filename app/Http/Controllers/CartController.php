@@ -25,24 +25,28 @@ class CartController extends Controller
 
     function store(Request $request)
     {
-        $user = User::find(Auth::user()->id);
-        $game = Product::find($request->gameid);
+        if (!Auth::check()) {
+            return view('login');
+        } else {
+            $user = User::find(Auth::user()->id);
+            $game = Product::find($request->gameid);
 
-        $cart = new Cart;
+            $cart = new Cart;
 
-        $cart->user_id = $user->id;
-        $cart->product_id = $game->id;
-        $cart->quantity = $request->quantity;
-        $cart->total = $game->price * $request->quantity;
-        $user->carts()->save($cart);
+            $cart->user_id = $user->id;
+            $cart->product_id = $game->id;
+            $cart->quantity = $request->quantity;
+            $cart->total = $game->price * $request->quantity;
+            $user->carts()->save($cart);
 
-        $u = Auth::user();
-        $cart_total = 0;
-        foreach ($u->carts as $item) {
-            $cart_total += (int)$item->total;
-        };
+            $u = Auth::user();
+            $cart_total = 0;
+            foreach ($u->carts as $item) {
+                $cart_total += (int)$item->total;
+            };
 
-        return view('cart', compact('user', 'cart_total'));
+            return view('cart', compact('user', 'cart_total'));
+        }
     }
 
     function destroy(Request $request)
